@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 400%;
+        background-color: red;
+      }
+      #boxStatic {
+        height: 300px;
+        width: 300px;
+        background-color: yellow;
+        /*scroll과 관계없이 그자리에 있음. default값*/
+        position: static;
+      }
+      #boxFixed {
+        height: 300px;
+        width: 300px;
+        background-color: green;
+        /*스크롤 따라 box가 따라옴*/
+        position: fixed;
+        /*top으로부터 떨어지는 간격.(bottom, left right*/
+        top: 10px;
+      }
+      .abs-box {
+        width: 400px;
+        height: 400px;
+        background-color: blue;
+        position: relative;
+      }
+      .abs-child {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        /*부모에 상대적으로 위치를 잡게함
+        부모에 relative 설정하지 않으면 본문 body에 포지션을 맞춤
+        */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxStatic">
+      <div class="box-chiild"></div>
+    </div>
+    <div id="boxFixed">
+      <div class="box-chiild"></div>
+    </div>
+    <div class="abs-box">
+      <div class="abs-child"></div>
+    </div>
+  </body>
+</html>

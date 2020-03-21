@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      .father {
+        /*flex는 father box에 적용해서 children을 일괄 변경할 수 있다.*/
+        display: flex;
+        /*수평정렬*/
+        justify-content: space-around;
+        /*수직정렬*/
+        align-items: center;
+        height: 100%;
+        /*수평으로 적용되던 것을 수직으로 바꿈. row가 default*/
+        /*flex-direction: column;*/
+        flex-direction: row-reverse;
+        /*box 추가해서 수평 공간이 모자랄때 grid처럼 처리함. no wrap이 default
+        no-wrap-reverse도 있음*/
+        flex-wrap: wrap-reverse;
+      }
+      .box {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+    </div>
+  </body>
+</html>
