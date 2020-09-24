@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS states</title>
     <style>
+      /* 변수로 사용할수도있음 */
+      :root {
+        --main-color: #ff0000;
+        --default-border: 2px solid var(--main-color);
+      }
       .box {
-        background-color: red;
+        background-color: var(--main-color);
         font-size: 40px;
       }
       .box:hover {
@@ -18,9 +23,43 @@
       .box:focus {
         background-color: blue;
       }
+      /* 한번 방문했으면 폰트 컬러를 바꿔준다. */
+      a:visited {
+        color: red;
+      }
+      form {
+        border: var(--default-border);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      /* 자식을 focus했을때 부모에게 일어나는 일 */
+      form:focus-within {
+        border-color: seagreen;
+      }
+      /* form에 hover하면 input의 마지막 자식에게 변화를주게 했음. */
+      form:hover input:nth-child(2) {
+        background-color: #7e6565;
+      }
+      /* placeholder 꾸미고싶을때 */
+      input::placeholder {
+        color: yellowgreen;
+      }
+      /* 텍스트 선택 꾸미고싶을때 */
+      p::selection {
+        color: white;
+        background-color: greenyellow;
+      }
     </style>
   </head>
   <body>
-    <textarea class="box">fkwelj</textarea>
+    <textarea class="box">Write!</textarea>
+    <a href="https://www.naver.com/">Go Naver</a>
+    <form action="">
+      <input type="text" placeholder="input!!" />
+      <input type="text" placeholder="input!!" />
+      <input type="text" placeholder="input!!" />
+      <p>Let's select!</p>
+    </form>
   </body>
 </html>
